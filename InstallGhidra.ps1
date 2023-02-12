@@ -1,10 +1,10 @@
 # Script d'installation de Ghidra 10.2.3
-# Crée par : Kuroakashiro
+# Cree par : Kuroakashiro
 $Back = "$PWD"
 Write-Host ""
 Write-Host ""
 Write-Host "Installation de Ghidra 10.2.3 !" -ForegroundColor Green 
-Write-Host "Installation dans : '$env:USERPROFILE\'"
+Write-Host "Installation dans : '$env:USERPROFILE\'" -ForegroundColor Yellow 
 Write-Host ""
 Write-Host ""
 #---------------
@@ -12,14 +12,14 @@ Write-Host ""
 curl -O "Ghidra 10.2.3.zip" "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.2.3_build/ghidra_10.2.3_PUBLIC_20230208.zip"
 if ($? -eq $True) {
     Write-Host "[OK]" -ForegroundColor Green -NoNewline
-    Write-Host "Téléchargement de Ghibra !"
-} else {Write-Host "[ERREUR]" -ForegroundColor Red -NoNewline; Write-Host "Téléchargement de Ghibra"}
+    Write-Host "Telechargement de Ghibra !"
+} else {Write-Host "[ERREUR]" -ForegroundColor Red -NoNewline; Write-Host "Telechargement de Ghibra"}
 
 Expand-Archive -Path "Ghidra 10.2.3.zip" -DestinationPath "$env:USERPROFILE\"
 if ($? -eq $True) {
     Write-Host "[OK]" -ForegroundColor Green -NoNewline
-    Write-Host "Décompression Ghibra !"
-} else {Write-Host "[ERREUR]" -ForegroundColor Red -NoNewline; Write-Host "Décompression Ghibra"}
+    Write-Host "Decompression Ghibra !"
+} else {Write-Host "[ERREUR]" -ForegroundColor Red -NoNewline; Write-Host "Decompression Ghibra"}
 rm -force "Ghibra 10.2.3.zip"
 
 cd "$env:USERPROFILE\"
@@ -47,8 +47,8 @@ if ($? -eq $False)
 curl -O "jdk-19_windows-x64_bin.msi" "https://download.oracle.com/java/19/latest/jdk-19_windows-x64_bin.msi"
 if ($? -eq $True) {
     Write-Host "[OK]" -ForegroundColor Green -NoNewline
-    Write-Host "Téléchargement de JDK !"
-} else {Write-Host "[ERREUR]" -ForegroundColor Red -NoNewline; Write-Host "Téléchargement de JDK"}
+    Write-Host "Telechargement de JDK !"
+} else {Write-Host "[ERREUR]" -ForegroundColor Red -NoNewline; Write-Host "Telechargement de JDK"}
 
 Start-Process "jdk-19_windows-x64_bin.msi" -Wait
 if ($? -eq $True) {
@@ -66,7 +66,7 @@ $Shortcut.IconLocation = "$env:USERPROFILE\Ghibra 10.2.3\support\ghidra.ico, 0"
 $Shortcut.Save()
 if ($? -eq $True) {
     Write-Host "[OK]" -ForegroundColor Green -NoNewline
-    Write-Host "Racourci Ghidra crée !"
+    Write-Host "Racourci Ghidra cree !"
 } else {Write-Host "[ERREUR]" -ForegroundColor Red -NoNewline; Write-Host "Racourci Ghidra"}
 
 Start-Sleep 5
