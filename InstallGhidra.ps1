@@ -23,7 +23,7 @@ if ($? -eq $True) {
     Write-Host "Decompression Ghibra !"
 } else {Write-Host "[ERREUR]" -ForegroundColor Red -NoNewline; Write-Host "Decompression Ghibra";}
 cd "$Back"
-rm -force "Ghibra 10.2.3.zip"
+rm -force "Ghidra 10.2.3.zip"
 cd "$env:USERPROFILE\"
 Rename-Item "ghidra_10.2.3_PUBLIC" -NewName "Ghidra 10.2.3"
 #---------------
