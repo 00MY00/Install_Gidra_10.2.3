@@ -29,15 +29,15 @@ function install {
         Write-Host "Telechargement de Ghibra !"
     } else {Write-Host "[ERREUR] " -ForegroundColor Red -NoNewline; Write-Host "Telechargement de Ghibra";}
 
-    Expand-Archive -Path "Ghidra 10.2.3.zip" -DestinationPath "$env:USERPROFILE\"
+    Expand-Archive -Path "$Back\Ghidra 10.2.3.zip" -DestinationPath "$env:USERPROFILE\"
     if ($? -eq $True) {
         Write-Host "[OK] " -ForegroundColor Green -NoNewline
         Write-Host "Decompression Ghibra !"
     } else {Write-Host "[ERREUR] " -ForegroundColor Red -NoNewline; Write-Host "Decompression Ghibra";}
     cd "$Back"
-    rm -force "Ghidra 10.2.3*.zip"
+    rm -force "$Back\Ghidra 10.2.3*.zip"
     cd "$env:USERPROFILE\"
-    Rename-Item "ghidra_10.2.3_PUBLIC" -NewName "Ghidra 10.2.3"
+    Rename-Item "$env:USERPROFILE\ghidra_10.2.3_PUBLIC" -NewName "$env:USERPROFILE\Ghidra 10.2.3"
     #---------------
     # Retour Back
     cd "$Back"
@@ -72,14 +72,14 @@ function install {
     } else {Write-Host "[ERREUR] " -ForegroundColor Red -NoNewline; Write-Host "Telechargement de JDK";}
 
     # Start-Process "jdk-19_windows-x64_bin.msi" -Wait
-    msiexec /i "jdk-19_windows-x64_bin.msi" /quiet
+    msiexec /i "$Back\jdk-19_windows-x64_bin.msi" /quiet
     if ($? -eq $True) {
         Write-Host "[OK] " -ForegroundColor Green -NoNewline
         Write-Host "Installation JDK !"
     } else {Write-Host "[ERREUR]" -ForegroundColor Red -NoNewline; Write-Host "Installation JDK";}
     # Retour Back
     cd "$Back"
-    rm -force "jdk-19_windows-x64_bin*.msi"
+    rm -force "$Back\jdk-19_windows-x64_bin*.msi"
     #---------------
     # Racourci bureau de Ghibra
     cd "$Back"
