@@ -29,9 +29,9 @@ function install {
     $Back = "$PWD"
 #---------------
 # Install Ghibra
-if (-not (Test-Path "Ghidra 10.2.3.zip")) {
-    curl -O "Ghidra 10.2.3.zip" "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.2.3_build/ghidra_10.2.3_PUBLIC_20230208.zip"
-}
+
+curl -O "Ghidra 10.2.3.zip" "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.2.3_build/ghidra_10.2.3_PUBLIC_20230208.zip"
+
 if ($? -eq $True) {
     Write-Host "[OK] " -ForegroundColor Green -NoNewline
     Write-Host "Telechargement de Ghibra !"
@@ -53,9 +53,9 @@ cd "$Back"
 # Install Java
 java -version > $null 2>&1
 if ($? -eq $False) {
-    if (-not (Test-Path "JavaSetup8u361.exe")) {
-        curl -O "JavaSetup8u361.exe" "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=247917_0ae14417abb444ebb02b9815e2103550"
-    }
+
+curl -O "JavaSetup8u361.exe" "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=247917_0ae14417abb444ebb02b9815e2103550"
+    
     Start-Process "JavaSetup8u361.exe" -Wait
     if ($? -eq $False) {
         Write-Host "[ERREUR] " -ForegroundColor Red -NoNewline
@@ -71,9 +71,9 @@ if ($? -eq $False) {
 # Install JDK
 # Retour Back
 cd "$Back"
-if (-not (Test-Path "jdk-19_windows-x64_bin.msi")) {
-    curl -O "jdk-19_windows-x64_bin.msi" "https://download.oracle.com/java/19/latest/jdk-19_windows-x64_bin.msi"
-}
+
+curl -O "jdk-19_windows-x64_bin.msi" "https://download.oracle.com/java/19/latest/jdk-19_windows-x64_bin.msi"
+
 if ($? -eq $True) {
     Write-Host "[OK] " -ForegroundColor Green -NoNewline
     Write-Host "Telechargement de JDK !"
