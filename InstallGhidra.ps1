@@ -108,7 +108,7 @@ Start-Sleep 5
 function uninstall {
     $Back = "$PWD"
     # Java
-    Write-Host "Desinstallation Java !" -ForegroundColor Yellow -NoNewline
+    Write-Host "Desinstallation Java !  " -ForegroundColor Yellow -NoNewline
     Write-Host "..." -ForegroundColor Yellow
     curl -O "JavaSetup8u361.exe" "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=247917_0ae14417abb444ebb02b9815e2103550"
     if ($? -eq $True) {
@@ -121,7 +121,7 @@ function uninstall {
     }
 
     # JDK
-    Write-Host "Desinstallation JDK" -ForegroundColor Yellow -NoNewline
+    Write-Host "Desinstallation JDK !  " -ForegroundColor Yellow -NoNewline
     Write-Host "..." -ForegroundColor Yellow
     if (-not (Test-Path "jdk-19_windows-x64_bin.msi")) {
         curl -O "jdk-19_windows-x64_bin.msi" "https://download.oracle.com/java/19/latest/jdk-19_windows-x64_bin.msi"
@@ -136,7 +136,7 @@ function uninstall {
     }
 
     # Racourci
-    Write-Host "Desinstallation Racourci !" -ForegroundColor Yellow -NoNewline
+    Write-Host "Desinstallation Racourci !  " -ForegroundColor Yellow -NoNewline
     Write-Host "..." -ForegroundColor Yellow
     if (Test-Path "$env:USERPROFILE\Desktop\Ghidra_10.2.3.lnk") {
         rm -force "$env:USERPROFILE\Desktop\Ghidra_10.2.3.lnk"
@@ -147,7 +147,7 @@ function uninstall {
     } else {Write-Host "[ERREUR] " -ForegroundColor Red; Write-Host "Desinstallation Racourci !"; }
 
     # Ghidra
-    Write-Host "Desinstallation Ghidra" -ForegroundColor Yellow -NoNewline
+    Write-Host "Desinstallation Ghidra !  " -ForegroundColor Yellow -NoNewline
     Write-Host "..." -ForegroundColor Yellow
     if (Test-Path "$env:USERPROFILE\Ghidra 10.2.3") {
         rm -force "$env:USERPROFILE\Ghidra 10.2.3"
