@@ -14,7 +14,7 @@ if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
     Start-Sleep 10
     exit
 }
-$Back = "$PWD"
+$Back = "$env:USERPROFILE\"
 Write-Host ""
 Write-Host ""
 Write-Host "Installation de Ghidra 10.2.3 !" -ForegroundColor Green 
@@ -26,7 +26,7 @@ Write-Host ""
 $user = Read-Host ": "
 
 function install {
-    $Back = "$PWD"
+    $Back = "$env:USERPROFILE\"
 #---------------
 # Install Ghibra
 
@@ -106,7 +106,7 @@ Start-Sleep 5
 }
 
 function uninstall {
-    $Back = "$PWD"
+    $Back = "$env:USERPROFILE\"
     # Java
     Write-Host "Desinstallation Java !  " -ForegroundColor Yellow -NoNewline
     Write-Host "..." -ForegroundColor Yellow
