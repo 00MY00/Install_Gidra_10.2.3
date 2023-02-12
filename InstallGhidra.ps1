@@ -4,6 +4,7 @@ $Back = "$PWD"
 Write-Host ""
 Write-Host ""
 Write-Host "Installation de Ghidra 10.2.3 !" -ForegroundColor Green 
+Write-Host "Attendee la fin de l'installation !" -ForegroundColor Magenta
 Write-Host "Installation dans : '$env:USERPROFILE\'" -ForegroundColor Yellow 
 Write-Host ""
 Write-Host ""
@@ -20,8 +21,8 @@ if ($? -eq $True) {
     Write-Host "[OK]" -ForegroundColor Green -NoNewline
     Write-Host "Decompression Ghibra !"
 } else {Write-Host "[ERREUR]" -ForegroundColor Red -NoNewline; Write-Host "Decompression Ghibra"}
+cd "$Back"
 rm -force "Ghibra 10.2.3.zip"
-
 cd "$env:USERPROFILE\"
 Rename-Item "ghidra_10.2.3_PUBLIC" -NewName "Ghidra 10.2.3"
 #---------------
