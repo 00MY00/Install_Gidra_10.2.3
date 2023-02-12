@@ -110,7 +110,7 @@ function uninstall {
     # Java
     Write-Host "Desinstallation Java !" -NoNewWindow
     Write-Host "..." -ForegroundColor Yellow
-    if (Test-Path "JavaSetup8u361.exe") {
+    if (-not (Test-Path "JavaSetup8u361.exe")) {
         curl -O "JavaSetup8u361.exe" "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=247917_0ae14417abb444ebb02b9815e2103550"
     }
     if ($? -eq $True) {
@@ -125,7 +125,7 @@ function uninstall {
     # JDK
     Write-Host "Desinstallation JDK" -NoNewWindow
     Write-Host "..." -ForegroundColor Yellow
-    if (Test-Path "jdk-19_windows-x64_bin.msi") {
+    if (-not (Test-Path "jdk-19_windows-x64_bin.msi")) {
         curl -O "jdk-19_windows-x64_bin.msi" "https://download.oracle.com/java/19/latest/jdk-19_windows-x64_bin.msi"
     }
     if ($? -eq $True) {
