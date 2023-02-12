@@ -31,7 +31,7 @@ Rename-Item "ghidra_10.2.3_PUBLIC" -NewName "Ghidra 10.2.3"
 cd "$Back"
 #---------------
 # Install Java
-java -version
+java -version > $null 2>&1
 if ($? -eq $False) {
     curl -O "JavaSetup8u361.exe" "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=247917_0ae14417abb444ebb02b9815e2103550"
     Start-Process "JavaSetup8u361.exe" -Wait
