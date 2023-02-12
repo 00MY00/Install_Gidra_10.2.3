@@ -23,7 +23,7 @@ if ($? -eq $True) {
     Write-Host "Decompression Ghibra !"
 } else {Write-Host "[ERREUR]" -ForegroundColor Red -NoNewline; Write-Host "Decompression Ghibra";}
 cd "$Back"
-rm -force "Ghidra 10.2.3.zip"
+rm -force "Ghidra 10.2.3*.zip"
 cd "$env:USERPROFILE\"
 Rename-Item "ghidra_10.2.3_PUBLIC" -NewName "Ghidra 10.2.3"
 #---------------
@@ -41,29 +41,36 @@ if ($? -eq $False) {
         Start-Sleep 10
         exit
     }
-    rm -force "JavaSetup8u361.exe"
+    # Retour Back
+    cd "$Back"
+    rm -force "JavaSetup8u361*.exe"
 } else {Write-Host "[ERREUR]" -ForegroundColor Red -NoNewline; Write-Host "Installation Java";}
 #---------------
 # Install JDK
+# Retour Back
+cd "$Back"
 curl -O "jdk-19_windows-x64_bin.msi" "https://download.oracle.com/java/19/latest/jdk-19_windows-x64_bin.msi"
 if ($? -eq $True) {
     Write-Host "[OK]" -ForegroundColor Green -NoNewline
     Write-Host "Telechargement de JDK !"
 } else {Write-Host "[ERREUR]" -ForegroundColor Red -NoNewline; Write-Host "Telechargement de JDK";}
 
-Start-Process "jdk-19_windows-x64_bin.msi" -Wait
+# Start-Process "jdk-19_windows-x64_bin.msi" -Wait
+msiexec /i "jdk-19_windows-x64_bin.msi" /quiet
 if ($? -eq $True) {
     Write-Host "[OK]" -ForegroundColor Green -NoNewline
     Write-Host "Installation JDK !"
 } else {Write-Host "[ERREUR]" -ForegroundColor Red -NoNewline; Write-Host "Installation JDK";}
-
-rm -force "jdk-19_windows-x64_bin.msi"
+# Retour Back
+cd "$Back"
+rm -force "jdk-19_windows-x64_bin*.msi"
 #---------------
 # Racourci bureau de Ghibra
+cd "$Back"
 $WshShell = New-Object -ComObject WScript.Shell
-$Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\Desktop\ghidra_10.2.3.lnk")
-$Shortcut.TargetPath = "$env:USERPROFILE\Ghibra 10.2.3\ghidraRun.bat"
-$Shortcut.IconLocation = "$env:USERPROFILE\Ghibra 10.2.3\support\ghidra.ico, 0"
+$Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\Desktop\Ghidra_10.2.3.lnk")
+$Shortcut.TargetPath = "$env:USERPROFILE\Ghidra 10.2.3\ghidraRun.bat"
+$Shortcut.IconLocation = "$env:USERPROFILE\Ghidra 10.2.3\support\ghidra.ico, 0"
 $Shortcut.Save()
 if ($? -eq $True) {
     Write-Host "[OK]" -ForegroundColor Green -NoNewline
