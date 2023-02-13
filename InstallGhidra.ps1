@@ -23,19 +23,19 @@ function install {
     # Install Ghibra
 
     curl -O "Ghidra 10.2.3.zip" "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.2.3_build/ghidra_10.2.3_PUBLIC_20230208.zip"
-
+    
     if ($? -eq $True) {
         Write-Host "[OK] " -ForegroundColor Green -NoNewline
         Write-Host "Telechargement de Ghibra !"
     } else {Write-Host "[ERREUR] " -ForegroundColor Red -NoNewline; Write-Host "Telechargement de Ghibra";}
-
+    Start-Sleep 5
     Expand-Archive -Path "$Back\Ghidra 10.2.3.zip" -DestinationPath "$env:USERPROFILE\"
     if ($? -eq $True) {
         Write-Host "[OK] " -ForegroundColor Green -NoNewline
         Write-Host "Decompression Ghibra !"
+        cd "$Back"
+        rm -force "$Back\Ghidra 10.2.3*.zip"
     } else {Write-Host "[ERREUR] " -ForegroundColor Red -NoNewline; Write-Host "Decompression Ghibra";}
-    cd "$Back"
-    rm -force "$Back\Ghidra 10.2.3*.zip"
     cd "$env:USERPROFILE\"
     Rename-Item "$env:USERPROFILE\ghidra_10.2.3_PUBLIC" -NewName "$env:USERPROFILE\Ghidra 10.2.3"
     #---------------
