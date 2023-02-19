@@ -64,7 +64,8 @@ function install {
     # Retour Back
     cd "$Back"
 
-    curl -O "jdk-19_windows-x64_bin.msi" "https://download.oracle.com/java/19/latest/jdk-19_windows-x64_bin.msi"
+    
+    curl -O "jdk-19_windows-x64_bin.exe" "https://download.oracle.com/java/19/latest/jdk-19_windows-x64_bin.exe"
 
     if ($? -eq $True) {
         Write-Host "[OK] " -ForegroundColor Green -NoNewline
@@ -72,14 +73,14 @@ function install {
     } else {Write-Host "[ERREUR] " -ForegroundColor Red -NoNewline; Write-Host "Telechargement de JDK";}
 
     # Start-Process "jdk-19_windows-x64_bin.msi" -Wait
-    msiexec /i "$Back\jdk-19_windows-x64_bin.msi" /quiet
+    .\jdk-19_windows-x64_bin.exe
     if ($? -eq $True) {
         Write-Host "[OK] " -ForegroundColor Green -NoNewline
         Write-Host "Installation JDK !"
     } else {Write-Host "[ERREUR]" -ForegroundColor Red -NoNewline; Write-Host "Installation JDK";}
     # Retour Back
     cd "$Back"
-    rm -force "$Back\jdk-19_windows-x64_bin*.msi"
+    rm -force "$Back\jdk-19_windows-x64_bin*.exe"
     #---------------
     # Racourci bureau de Ghibra
     cd "$Back"
