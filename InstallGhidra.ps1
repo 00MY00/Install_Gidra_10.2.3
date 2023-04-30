@@ -127,7 +127,7 @@ function uninstall {
     Write-Host "Desinstallation JDK !  " -ForegroundColor Yellow -NoNewline
     Write-Host "..." -ForegroundColor Yellow
     if (-not (Test-Path "jdk-19_windows-x64_bin.msi")) {
-        curl -O "jdk-19_windows-x64_bin.msi" "https://download.oracle.com/java/19/latest/jdk-19_windows-x64_bin.msi"
+        curl -O "jdk-19_windows-x64_bin.msi" "https://download.oracle.com/java/19/archive/jdk-19.0.2_windows-x64_bin.msi"
     }
     if ($? -eq $True) {
         msiexec /x jdk-19_windows-x64_bin.msi /quiet
