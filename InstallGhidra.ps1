@@ -65,7 +65,7 @@ function install {
     cd "$Back"
 
     
-    curl -O "jdk-19_windows-x64_bin.exe" "https://download.oracle.com/java/19/latest/jdk-19_windows-x64_bin.exe"
+    curl -O "jdk-19_windows-x64_bin.exe" "https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe"
 
     if ($? -eq $True) {
         Write-Host "[OK] " -ForegroundColor Green -NoNewline
